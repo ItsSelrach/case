@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home - Your Portfolio</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-left: 0;
+        }
+
+        nav {
+            z-index: 1000;
+            height: 40%;
+            width: 115px;
+            position: fixed;
+            top: 40%;
+            left: -100px;
+            background-color: #000000;
+            transition: left 0.3s;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            /* Add flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            padding: 0;
+            /* Remove padding if it exists */
+        }
+
+        .navButtons {
+            width: 100%;
+            /* Make container full width of nav */
+            height: 100%;
+            /* Make container full height of nav */
+            display: flex;
+            /* Add flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /* Space between icons */
+            align-items: center;
+            /* Center menu items horizontally */
+            width: 100%;
+            /* Take full width */
+        }
+
+        #menu a {
+            display: flex;
+            /* Make links flex containers */
+            justify-content: center;
+            /* Center icon horizontally */
+            align-items: center;
+            /* Center icon vertically */
+            padding: 0;
+            /* Remove padding if it exists */
+            width: 100%;
+            /* Take full width */
+        }
+
+        #menu img {
+            width: 50px;
+            /* Adjust icon size as needed */
+            height: 50px;
+            /* Maintain aspect ratio */
+            display: block;
+            /* Ensure proper display */
+        }
+
+        /* header */
+
+        header {
+            background-color: #000000;
+            color: #f4f4f4;
+            font-size: 30px;
+            padding: 0em 10px;
+            text-align: left;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: "Inria Serif";
+        }
+
+
+        /*Buttons*/
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /*Menu*/
+        .menu-btn {
+            background: none;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-size: 30px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 0%;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+        }
+
+        .menu-dropdown a:hover {
+            background-color: #575757;
+        }
+
+        .menu-dropdown.show {
+            display: block;
+        }
+
+        /* contrent */
+        .content {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+        }
+
+
+        body.sidebar-active .content {
+            margin-left: 0px;
+        }
+
+        .content h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .coverPhoto {
+            position: relative;
+            left: -100px;
+            width: 110%;
+            height: 30vh;
+            box-shadow: 0px 2px 5px #333;
+            z-index: 100;
+        }
+
+        .coverPhoto img {
+            width: 110%;
+        }
+
+        .profilePhoto {
+            position: relative;
+            left: 100px;
+            top: -100px;
+            width: 20vh;
+            height: 20vh;
+            z-index: 100;
+        }
+
+
+
+        .profilePhoto img {
+            width: 28vh;
+
+        }
+
+        #title {
+            font-size: 50px;
+            font-family: "Bebas Neue";
+            background-color: #000000;
+            color: #f4f4f4;
+            border-radius: 10px;
+            position: absolute;
+            padding: 6px 450px;
+            top: 328px;
+            left: 450px;
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+
+        .file-upload-label {
+            position: absolute;
+            top: 370px;
+            left: 1600px;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 50px;
+            padding: 10px 25px;
+            background: #000000;
+            border-radius: 10px;
+            transition: all 0.3s;
+            color: #f4f4f4;
+        }
+
+        .file-upload-label:hover {
+            background: #f4f4f4;
+            color: #000000;
+            border-style: solid;
+
+            /* Hover effect */
+        }
+
+        .masonry {
+            column-count: 4;
+            column-gap: 1em;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 30px;
+            
+        }
+
+        .box {
+            background: white;
+            margin-bottom: 1em;
+            padding: 10px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masonry {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="navButtons">
+            <div id="menu">
+                <a href="user1.html"><img src="/image/dashboard.png" alt="Dashboard "></a>
+                <a href="jornal1.html"><img src="/image/journal.png" alt="Journal"></a>
+                <a href="portfolio1.html"><img src="/image/portfolio.png" alt="Portfolio"></a>
+                <a href="note1.html"><img src="image/notes.png" alt="Notes"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <header>
+            <h1 style="font-style: italic;font-size: 70px;padding: 0px; margin: 10px; font-family: 'Inria Serif';">CASE!
+            </h1>
+            <div class="nav-right">
+                <a href="/landingPage.html" style="padding-top: 10px;">Home</a>
+                <a href="/landingPage.html" style="padding-top: 10px;">Features</a>
+                <a href="/landingPage.html" style="padding-top: 10px;">About Us</a>
+                <button class="menu-btn" onclick="toggleMenu()" style="color: white;">☰&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="request-feature.html">Request Feature</a>
+                <a href="report-problem.html">Report Problem</a>
+                <a href="send-feedback.html">Send Feedback</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+        </header>
+
+        <section>
+            <div class="coverPhoto">
+                <img src="./image/image.png">
+            </div>
+
+            <div class="profilePhoto">
+                <img src="./image/Rectangle 48.png">
+            </div>
+        </section>
+
+        <div class="masonry">
+
+            <h2 id="title">Portfolio</h2>
+            <label for="importPortfolio" class="file-upload-label">
+                +
+                <input type="file" id="importPortfolio" accept=".jpg, .jpeg, .png" class="file-upload-input">
+            </label>
+            <div class="box"><img src="image/Rectangle 50.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 54.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 55.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 57.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 58.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 59.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 60.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 62.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 63.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 64.png" alt=""></div>
+            <div class="box"><img src="image/Rectangle 65.png" alt=""></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const nav = document.querySelector('nav');
+        const body = document.querySelector('body');
+        const moreLink = document.querySelector('.more-link');
+
+        let isSidebarVisible = false;
+
+
+        function showSidebar() {
+            nav.style.left = '0';
+            body.classList.add('sidebar-active');
+            moreLink.style.display = 'none';
+            isSidebarVisible = true;
+        }
+
+
+        function hideSidebar() {
+            nav.style.left = '-230px';
+            body.classList.remove('sidebar-active');
+            moreLink.style.display = 'block';
+            isSidebarVisible = false;
+        }
+
+
+        document.addEventListener('mousemove', (event) => {
+
+            if (event.clientX < 50 && !isSidebarVisible) {
+                showSidebar();
+            }
+
+
+            if (event.clientX > 200 && isSidebarVisible) {
+                hideSidebar();
+            }
+        });
+
+        document.getElementById('importPortfolio').addEventListener('change', function (e) {
+            const files = e.target.files;
+            const masonry = document.querySelector('.masonry');
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+
+                if (file.type.match('image.*')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        const box = document.createElement('div');
+                        box.className = 'box';
+
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = 'Uploaded image';
+
+                        box.appendChild(img);
+                        masonry.appendChild(box);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            // Reset the input to allow uploading the same file again
+            e.target.value = '';
+        });
+
+    </script>
+
+</body>
+
+</html>

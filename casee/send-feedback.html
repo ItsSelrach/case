@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Feedback</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Kochi&display=swap');
+       
+        * {
+        margin: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            text-align: left;
+            font-style: italic;
+            padding-top:0px;
+            font-size: 35px;
+            text-indent:30px;
+            font-family: 'Inria Serif';
+        }
+        .branding {
+            background-color: #000000;
+            color: white;
+            width: 100%;
+            text-align: left;
+            font-size: 35px;
+            font-weight: bold;
+            font-family: 'Inria Serif'; /* Custom font */
+            font-style: italic;
+            text-indent:30px;
+        }
+
+        .content {
+            width: 100%;
+            text-align: left;
+            padding: 20px;
+            font-family: 'Inria Serif'; /* Custom font */
+            font-size: 35px;
+            font-weight: bold;
+            margin-left: 305px;
+            margin-top: 10px;
+
+        }
+
+        .info-box {
+            width: 77%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            padding: 47px;
+            border-radius: 15px;
+            margin: 20px auto; /* Centered both boxes */
+            box-shadow: 0 4px 12px #d6d6d6 (0, 0, 0, 0); /* Added shadow */
+            font-family: 'Hind Kochi','Inria Serif';
+            margin: 25px;
+            text-align: center;
+        }
+        .comment-section {
+            width: 60%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #ffffff;
+            border: 2px solid #d6d6d6;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto; /* Centered both boxes */
+            box-shadow: 0 4px 12px #d6d6d6 (0, 0, 0, 0); /* Added shadow */
+            font-family: 'Hind Kochi','Inria Serif';
+        }
+
+        .info-box h3 {
+            font-family: Hind Kochi; /* Custom font */
+            font-size: 25px;
+            font-weight: lighter
+        }
+
+        .comment-section {
+            background-color: #f1f1f1;
+            padding: 30px;
+        }
+
+        .comment-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            margin-bottom: 10px; 
+            color:rgba(14, 196, 14, 0.905);
+            font-size: x-large;
+        }
+
+        .submit-btn {
+            background-color: #899389;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: rgba(18, 116, 7, 0.905);
+        }
+    </style>
+</head>
+<body>
+    <div class="branding">
+    <header>
+        <h1>CASE!</h1>
+    </header>
+    </div>
+
+    <div class="content">
+        <p>Send feedback</p>
+    </div>
+
+    <div class="info-box">
+        <h3>Your thoughts matter! We value your feedback about your experience with CASE. Whether you have suggestions for improvement, compliments about features you love, or constructive criticism, we want to hear it all. Your insights help us understand what we’re doing well and where we can improve, allowing us to create a better platform for everyone.</h3>
+    </div>
+
+    <div style="font-size: 20px; font-family:'Inria Serif';">
+        <label for="rating">Rate our Website: ⭐</label>
+        <input type="number" min="0" max="5" id="rating" style="height: 20px; width: 40px; border-left: none; border-right: none; border-top: none; ">
+    </div>
+
+    <div class="comment-section">
+        <textarea placeholder="Hello there!"></textarea>
+        <button class="submit-btn">Submit</button>
+    </div>
+</body>
+</html>
